@@ -21,6 +21,8 @@ body,
     --primary-foreground: 210 40% 98%;
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
+    --warning: 45 100% 50%; /* Kuning terang untuk warna peringatan */
+    --warning-foreground: 45 100% 20%; /* Kuning tua untuk teks foreground */
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
     --accent: 210 40% 96.1%;

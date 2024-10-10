@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="border-t border-secondary py-6">
       <div className="container flex items-center justify-center">
         <small>
-          &copy; 2022
+          &copy; 2022{" "}
           <Link to="https://tamionweb.my.id" className="text-primary font-semibold hover:underline">
             Tamionweb
           </Link>

@@ -3,7 +3,7 @@ import { ModeToggle } from "../theme/ModeToggle";
 
 export default function Header() {
   return (
-    <header className="border-b">
+    <header className="border-b border-secondary">
       <div className="container flex h-16 items-center justify-between">
         <Logo />
         <nav>
@@ -17,7 +17,7 @@ export default function Header() {
 export function Logo() {
   return (
     <Link to="/" className="text-lg font-semibold">
-      JOB<span className="text-primary">HST</span>
+      TASK<span className="text-primary">MANAGER</span>APP
     </Link>
   );
 }
