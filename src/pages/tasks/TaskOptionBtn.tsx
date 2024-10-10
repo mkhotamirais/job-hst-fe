@@ -12,6 +12,7 @@ import { Task } from "./types";
 import TaskDialogDetail from "./TaskDialogDetail";
 import { Edit, Eye, Trash } from "lucide-react";
 import TaskDialogDel from "./TaskDialogDel";
+import { Link } from "react-router-dom";
 
 export default function TaskOptionBtn({ className, item }: { className?: string; item: Task }) {
   const [openDetail, setOpenDetail] = useState(false);
@@ -40,9 +41,10 @@ export default function TaskOptionBtn({ className, item }: { className?: string;
               <Eye className="mr-2 h-4 w-4" />
               Detail
             </DropdownMenuItem>
-            <DropdownMenuItem className="cursor-pointer">
-              <Edit className="mr-2 h-4 w-4" />
-              Update
+            <DropdownMenuItem className="cursor-pointer" asChild>
+              <Link to={`/tasks/update/${item?._id}`}>
+                <Edit className="mr-2 h-4 w-4" /> Update
+              </Link>
             </DropdownMenuItem>
             <DropdownMenuItem onClick={() => setOpenDel(true)} className="cursor-pointer text-red-500 hover:text-black">
               <Trash className="mr-2 h-4 w-4" />

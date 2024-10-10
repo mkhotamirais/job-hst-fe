@@ -10,7 +10,7 @@ import { Calendar } from "@/components/ui/calendar";
 import { CalendarIcon, Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { format } from "date-fns";
-// import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import axios from "axios";
 import { useState } from "react";
 import { baseUrl } from "@/lib/constants";
@@ -34,8 +34,8 @@ export default function TaskCreate() {
     await axios
       .post(`${baseUrl}/api/tasks`, values)
       .then((res) => {
-        toast.success("berhasil");
-        console.log(res);
+        toast.success(res?.data?.message);
+        form.reset();
         navigate("/tasks");
       })
       .catch((err) => {
@@ -49,9 +49,9 @@ export default function TaskCreate() {
     <div className="flex-1 py-4 flex items-center justify-center bg-secondary">
       <div className="container">
         <div className="max-w-lg mx-auto p-6 shadow-lg rounded-lg bg-background">
-          <h1 className="text-primary font-bold text-xl mb-2">Add Task</h1>
+          <h1 className="text-primary font-bold text-xl mb-4 text-center">Add Task</h1>
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2">
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
               <FormField
                 control={form.control}
                 name="title"
@@ -78,36 +78,32 @@ export default function TaskCreate() {
                   </FormItem>
                 )}
               />
-              {/* <FormField
-                  control={form.control}
-                  name="status"
-                  render={({ field }) => (
-                    <FormItem className="">
-                      <FormLabel>Status</FormLabel>
-                      <Select
-                        disabled={pending}
-                        onValueChange={(value) => {
-                          const processedValue = value === "none" ? undefined : value;
-                          field.onChange(processedValue);
-                        }}
-                        defaultValue={field.value || "none"}
-                      >
-                        <FormControl>
-                          <SelectTrigger>
-                            <SelectValue placeholder="Status" />
-                          </SelectTrigger>
-                        </FormControl>
-                        <SelectContent>
-                          <SelectItem value="none">None</SelectItem>
-                          <SelectItem value="pending">Pending</SelectItem>
-                          <SelectItem value="in-progress">In Progress</SelectItem>
-                          <SelectItem value="completed">Completed</SelectItem>
-                        </SelectContent>
-                      </Select>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                /> */}
+              <FormField
+                control={form.control}
+                name="status"
+                render={({ field }) => (
+                  <FormItem className="">
+                    <FormLabel>Status</FormLabel>
+                    <Select
+                      disabled={pending}
+                      onValueChange={(value) => field.onChange(value)}
+                      defaultValue={field.value}
+                    >
+                      <FormControl>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Status" />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent>
+                        <SelectItem value="pending">Pending</SelectItem>
+                        <SelectItem value="in-progress">In Progress</SelectItem>
+                        <SelectItem value="completed">Completed</SelectItem>
+                      </SelectContent>
+                    </Select>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
               <FormField
                 control={form.control}
                 name="dueDate"

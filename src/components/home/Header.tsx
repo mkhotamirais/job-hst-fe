@@ -3,7 +3,7 @@ import { ModeToggle } from "../theme/ModeToggle";
 
 export default function Header() {
   return (
-    <header className="border-b border-secondary">
+    <header className="border-b border-secondary sticky top-0 z-40 bg-background">
       <div className="container flex h-16 items-center justify-between">
         <Logo />
         <nav>
