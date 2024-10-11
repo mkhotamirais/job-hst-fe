@@ -1,4 +1,4 @@
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useForm } from "react-hook-form";
@@ -136,10 +136,6 @@ export default function TaskCreate() {
                         />
                       </PopoverContent>
                     </Popover>
-                    <FormDescription>
-                      If no due date is set, the status will be <span className="font-bold">pending</span>, otherwise
-                      the status will be <span className="font-bold">in-progress</span>.
-                    </FormDescription>
                     <FormMessage />
                   </FormItem>
                 )}
