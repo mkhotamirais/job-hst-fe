@@ -27,6 +27,14 @@ Install the required packages using npm:
   npm install
   ```
 
+## Add the .env file
+Create .env file at the root of the project. Add the following configuration setting:
+
+  ```
+  VITE_URL_DEV="http://localhost:5000"
+  VITE_URL_PROD="https://job-hst-be.vercel.app"
+  ```
+
 ## Running the development server   
 To start the development server, run the following command:
 
