@@ -8,7 +8,7 @@ import LoadPage from "@/components/LoadPage";
 import TaskOptionBtn from "./TaskOptionBtn";
 import { useTask } from "@/hooks/useTask";
 import { QueryFilterStatus, QueryReset, QuerySearch, QuerySortBtn } from "./TaskQuery";
-import { Plus } from "lucide-react";
+import { Plus, RotateCcw } from "lucide-react";
 
 export const badgeVarian = (status: string) => {
   if (status === "pending") {
@@ -47,7 +47,14 @@ export default function Tasks() {
   return (
     <section className="bg-secondary flex-1 py-4">
       {err ? (
-        <div className="container text-center italic text-red-500 mt-4 text-xl">{err}</div>
+        <div className="container mt-4 flex flex-col justify-center items-center">
+          <p className="text-center italic text-red-500 text-xl mb-4">{err}</p>
+
+          <Button onClick={() => window.location.reload()}>
+            <RotateCcw className="mr-2 h-4 w-4" />
+            Reload
+          </Button>
+        </div>
       ) : (
         <div className="container">
           <div className="flex flex-col sm:flex-row mb-4 items-center justify-between">

@@ -114,14 +114,6 @@ export function QuerySort() {
 
   return (
     <div className="flex gap-2 flex-wrap justify-center">
-      <Button onClick={() => onClick("-dueDate")} variant={sort === "-dueDate" ? "default" : "outline"}>
-        <CalendarArrowDown className="size-4 mr-2" />
-        Logest Due Date
-      </Button>
-      <Button onClick={() => onClick("dueDate")} variant={sort === "dueDate" ? "default" : "outline"}>
-        <CalendarArrowUp className="size-4 mr-2" />
-        Sortest Due Date
-      </Button>
       <Button onClick={() => onClick("-createdAt")} variant={sort === "-createdAt" ? "default" : "outline"}>
         <ClockArrowDown className="size-4 mr-2" />
         Latest
@@ -129,6 +121,14 @@ export function QuerySort() {
       <Button onClick={() => onClick("createdAt")} variant={sort === "createdAt" ? "default" : "outline"}>
         <ClockArrowUp className="size-4 mr-2" />
         Oldest
+      </Button>
+      <Button onClick={() => onClick("-dueDate")} variant={sort === "-dueDate" ? "default" : "outline"}>
+        <CalendarArrowDown className="size-4 mr-2" />
+        Logest Due Date
+      </Button>
+      <Button onClick={() => onClick("dueDate")} variant={sort === "dueDate" ? "default" : "outline"}>
+        <CalendarArrowUp className="size-4 mr-2" />
+        Sortest Due Date
       </Button>
       <Button onClick={() => onClick("title")} variant={sort === "title" ? "default" : "outline"}>
         <ArrowDownAz className="size-4 mr-2" />
